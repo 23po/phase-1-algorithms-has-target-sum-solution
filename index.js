@@ -1,15 +1,17 @@
 function hasTargetSum(array, target) {
-  for (let i = 0; i < array.length; i++) {
-  const complement = target - array[i];
-for (let j = i + 1; j < array.length; j++) {
- if (array[j] === complement) return true;
-}
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
+
+    if (seenNumbers.has(complement)) return true;
+
+    seenNumbers.add(number);
   }
-return false;
+  return false;
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n)
 */
 
 /* 
